@@ -1,5 +1,8 @@
-function getNames() {
+
+
+function myServer() {
 	const dir = './public/data';
+	const outDir = './output';
 	const bodyParser = require('body-parser');
 	const express = require('express');
 	const app = express();
@@ -7,6 +10,12 @@ function getNames() {
 	app.use(express.static('public'));
 	app.use(express.static('data'));
 	app.use(bodyParser.json());
+
+	app.get('out', function(req, res) {
+		const fs = require('fs');
+		const fileNames = fs.readdirSync(dir);
+		res.send(JSON.stringify(fileNames));
+	});
 
 	app.get('/file', function(req, res) {
 		const fs = require('fs');
@@ -33,10 +42,11 @@ function getNames() {
 		newpath = newdir_ref;
 		command = 'mv ' + oldpath + " " + newpath;
 
+		let {PythonShell} = require('python-shell');
+
 		execSync(command);
-		execSync('conda activate py36tf');
-		execSync('python ~/桌面/project/PairedCycleGAN-tf/train-test.py');
-		console.log('model start creating');
+		PythonShell.run('/home/tjc105u/桌面/project/PairedCycleGAN-tf/train_test.py', null, (err) => console.log(err));
+		console.log('shoes created');
 
 		res.send('well done');
 		
@@ -60,15 +70,16 @@ function initData() {
 
 	for(i = 0; i < dataSrc.length; i++) { 
 		let command = 'mv ' + srcPath + dataSrc[i] + ' ' + origPath;
-		//execSync(command);
+		console.log(command);
+		execSync(command);
 		
 	}
 
 	for(j = 0; j< dataRef.length; j++) {
 		let command = 'mv ' + refPath + dataRef[j] + ' ' + origPath;
 		console.log(command);
-		//execSync(command);
+		execSync(command);
 	}
 }
-//getNames();
-initData();
+
+myServer();

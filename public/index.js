@@ -75,3 +75,11 @@ function sendData() {
         .then((response) => console.log(response));
     }
 }
+
+function backToHome() {
+    window.location.href = 'index.html';
+}
+
+function getOutImg() {
+    const  url = 'http://localhost:2025/out';
+}
