@@ -3,5 +3,6 @@
 2. Setup environment: conda create —name “py36” python=3.6
 3. Install tensorflow: conda install tesorflow
 4. install xampp for your prefer version
+5. Hardware requirement: you must have gpu to run the code !!!!!
 # DataSet control
 place training dataset under public/data and launch your xampp. Then you can start testing :)
