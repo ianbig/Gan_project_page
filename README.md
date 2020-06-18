@@ -1,8 +1,4 @@
-# Environment Setup
-1. Setup conda: installation guide https://docs.conda.io/projects/conda/en/latest/user-guide/install/
-2. Setup environment: conda create —name “py36” python=3.6
-3. Install tensorflow: conda install tesorflow
-4. install xampp for your prefer version
-5. Hardware requirement: you must have gpu to run the code !!!!!
-# DataSet control
-place training dataset under public/data and launch your xampp. Then you can start testing :)
+## Question at issue
+![](https://i.imgur.com/LyGkkAg.png)
+
+The above process is a complete guide on how a shoes desinger design a shoes. In order to design a masterpiece, the designer has to corporate with shoes maker. If one process went wrong, the whole flow has to start from the beginning.
